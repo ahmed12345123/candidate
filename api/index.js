@@ -4,13 +4,13 @@ const cors = require('cors');
 app.use(cors());
 
 app.use(express.json());
-const db = require('./services/database');
+//const db = require('./services/database');
 
 app.get('/', (req, res) => {
    res.send('hello')
 });
 
-require('./controllers/candidateControllers');
+//require('./controllers/candidateControllers');
 require('./routes/candidateRoute')(app);
 
 const port = process.env.PORT || 3000;

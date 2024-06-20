@@ -1,5 +1,6 @@
  const db = require('../services/database');
 
+//data access layer
 
  async function alreadyExist(email) {
     try {
@@ -15,18 +16,7 @@
     // return false;
     }
   };
-// async function alreadyExist(email) {
-//     try {
-//         const [rows, fields] = await db.execute(
-//             'SELECT * FROM candidates WHERE email = ?',
-//             [email]
-//         );
-//         return rows.length > 0; // Return true if email exists
-//     } catch (error) {
-//         console.error('Error in alreadyExist function', error);
-//         throw error; // Propagate the error to handle it elsewhere if needed
-//     }
-// }
+
 
 
 
@@ -43,4 +33,21 @@
  }
  
  module.exports = {alreadyExist,createCandidate};
- 
+
+
+
+
+
+
+ // async function alreadyExist(email) {
+//     try {
+//         const [rows, fields] = await db.execute(
+//             'SELECT * FROM candidates WHERE email = ?',
+//             [email]
+//         );
+//         return rows.length > 0; // Return true if email exists
+//     } catch (error) {
+//         console.error('Error in alreadyExist function', error);
+//         throw error; // Propagate the error to handle it elsewhere if needed
+//     }
+// }
