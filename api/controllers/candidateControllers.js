@@ -16,7 +16,9 @@ async function alreadyExist(email) {
 }
 
 async function createCandidate(email, first_name, last_name, time_interval, linkedin, github, text, phone_number) {
+    
     try {
+    
         const exists = await alreadyExist(email);
 
         if (exists) {

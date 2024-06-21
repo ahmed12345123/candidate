@@ -10,8 +10,8 @@ app.post('/api/add', async (req, res) => {
 
 const { email, first_name, last_name, time_interval, linkedin, github, text, phone_number} = req.body;
 
-if (!email) {
-    return res.status(400).json({ message: 'Error: Email should be entered' });
+if (!email || !first_name || !last_name || !github) {
+    return res.status(400).json({ message: 'Error: missing mandatory feild' });
 }
 
 try {
