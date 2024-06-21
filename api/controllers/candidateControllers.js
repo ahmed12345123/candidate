@@ -22,8 +22,8 @@ async function createCandidate(email, first_name, last_name, time_interval, link
         if (exists) {
             // Update the existing candidate record
             const result = await db.execute(
-                'UPDATE candidates SET first_name = ?, last_name = ?, time_interval = ?, linkedin = ?, github = ?, text = ? phone_number = ? WHERE email = ?',
-                [first_name, last_name, time_interval, linkedin, github, text, phone_number , email ]
+                'UPDATE candidates SET first_name = ?, last_name = ?, time_interval = ?, linkedin = ?, github = ?, text = ?, phone_number = ? WHERE email = ?',
+                [first_name, last_name, time_interval, linkedin, github, text, phone_number , email]
             );
             console.log('Candidate updated', result);
         } else {
@@ -35,7 +35,7 @@ async function createCandidate(email, first_name, last_name, time_interval, link
            console.log('Candidate created', result);
         }
 
-        return true; // Return success if no errors occurred
+        return true; // Return success if no errors
     } catch (error) {
           console.error('Error creating or updating candidate', error);
         throw error;
