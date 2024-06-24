@@ -5,7 +5,7 @@ const db = require('../services/database');
 async function alreadyExist(email) {
     try {
         const [rows, fields] = await db.execute(
-            'SELECT * FROM candidates WHERE email = ?',
+            'SELECT * FROM candidate WHERE email = ?',
             [email]
         );
         return rows.length > 0;
@@ -24,15 +24,15 @@ async function createCandidate(email, first_name, last_name, time_interval, link
         if (exists) {
             // Update the existing candidate record
             const result = await db.execute(
-                'UPDATE candidates SET first_name = ?, last_name = ?, time_interval = ?, linkedin = ?, github = ?, text = ?, phone_number = ? WHERE email = ?',
+                'UPDATE candidate SET first_name = ?, last_name = ?, time_interval = ?, linkedin = ?, github = ?, text = ?, phone_number = ? WHERE email = ?',
                 [first_name, last_name, time_interval, linkedin, github, text, phone_number , email]
             );
             console.log('Candidate updated', result);
         } else {
             // Insert a new candidate record
             const result = await db.execute(
-                'INSERT INTO candidates (email, first_name, last_name, time_interval, linkedin, github, text, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-                [email, first_name, last_name, , time_interval, linkedin, github, text, phone_number]
+                'INSERT INTO candidate (email, first_name, last_name, time_interval, linkedin, github, text, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+                [email, first_name, last_name, time_interval, linkedin, github, text, phone_number]
             );
            console.log('Candidate created', result);
         }
