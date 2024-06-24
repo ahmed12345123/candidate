@@ -1,1 +1,2 @@
 To start the project :  you are gonna need a mysql database on your system and to connect the database server with the backend server apply your user name , password , database name and host from the terminal navigate to api folder apply npm install , node index.js and the same in the client, apply npm i , npm start make sure to manage your ports.
+(this version have built in DB table creation code)
